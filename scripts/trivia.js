@@ -645,6 +645,11 @@ TriviaGame.prototype.player = function (src) {
 
 TriviaGame.prototype.playerPlaying = function (src) {
     var key = this.key(src);
+    for (player in this.triviaPlayers) {
+       if (sys.ip(player) === sys.ip(key)) {
+          return true;
+       }
+    }
     return (this.triviaPlayers.hasOwnProperty(key) && this.triviaPlayers[key].playing);
 };
 
